@@ -1,0 +1,41 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-back-button slot="start" text="" style=" margin-left: 4px; z-index: 9999; font-size: 22px;" color="primary">
+    </ion-back-button>
+    <ion-title>Escolher cidade</ion-title>
+  </ion-toolbar>
+  <div class="shadow" style="width: 100%; height: 1px; margin-top: -1px;"></div>
+</ion-header>
+
+
+<ion-content *ngIf="loadingStates == false">
+
+  <div *ngFor="let state of states">
+    <ion-card class="ion-activatable ripple-parent shadow">
+
+      <ion-card-header (click)="selectState(state.adminCodes1.ISO3166_2)">
+        <ion-card-title>{{state.name}}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content *ngIf="cities && state.adminCodes1.ISO3166_2 == selectedState">
+        <ion-list>
+          <div *ngIf="loadingCity == true" style="width: 100%; display: flex; justify-content: center;">
+            <ion-spinner color="primary"></ion-spinner>
+          </div>
+          <ion-item *ngFor="let city of cities" class="ion-activatable ripple-parent" (click)="selectCity(city.nome)">
+            {{city.nome}}
+            <ion-ripple-effect></ion-ripple-effect>
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+
+      <ion-ripple-effect></ion-ripple-effect>
+    </ion-card>
+  </div>
+
+</ion-content>
+
+<ion-content *ngIf="loadingStates == true">
+
+  <ion-spinner color="primary" class="centerXY"></ion-spinner>
+
+</ion-content>

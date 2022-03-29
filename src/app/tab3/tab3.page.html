@@ -1,0 +1,86 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar>
+
+    <ion-title>
+      Meu Perfil
+    </ion-title>
+    
+    <ion-button (click)="logout()" class="btnLogout" expand="block" fill="clear" slot="end" style="margin-right: 15px;">
+      <ion-icon name="log-out-outline" style="font-size: 25px;" color="dark"></ion-icon>
+    </ion-button>
+
+  </ion-toolbar>
+  <div class="shadow" style="width: 100%; height: 1px; margin-top: -1px;"></div>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <div>
+
+    <br><br>
+
+    <div style="justify-content: center; display: flex;">
+      <span *ngIf="user" class="dot"> <h1 style="text-align: center; font-weight: bold; font-size: 36px; margin-top: 29px; margin-left: 6px; color: white;">D</h1> </span>
+    </div>
+    <br>
+    <ion-text *ngIf="user.nome" color="dark">
+      <h1 style="text-align: center; font-weight: bold; font-weight: 410;">{{user.nome.toUpperCase()}}</h1>
+    </ion-text>
+    
+    <br>
+    <br>
+
+    <ion-button [routerLink]="['/meus-dados']" expand="full" fill="clear" style="height: 70px; font-size: 18px; margin-top: -18px;">
+      <ion-icon name="person-outline" color="primary" style="margin-right: 10px; font-size: 26px;"></ion-icon>
+      <ion-text color="dark" style="text-align: left; width: 100%; margin-top: 2px; margin-left: 4px;">
+        <span>
+          Meus dados
+        </span>
+      </ion-text>
+    </ion-button>
+    <ion-button expand="full" fill="clear" style="height: 70px; font-size: 18px; margin-top: 0px;">
+      <ion-icon name="apps-outline" color="primary" style="margin-right: 10px; font-size: 26px;"></ion-icon>
+      <ion-text color="dark" style="text-align: left; width: 100%; margin-top: 2px; margin-left: 4px;">
+        <span>
+          Meus posts
+        </span>
+      </ion-text>
+    </ion-button>
+    <ion-button expand="full" fill="clear" style="height: 70px; font-size: 18px; margin-top: 0px;">
+      <ion-icon name="checkbox-outline" color="primary" style="margin-right: 10px; font-size: 26px;"></ion-icon>
+      <ion-text color="dark" style="text-align: left; width: 100%; margin-top: 2px; margin-left: 4px;">
+        <span>
+          Qual o melhor PET para min?
+        </span>
+      </ion-text>
+    </ion-button>
+    <!-- <ion-button expand="full" fill="clear" style="height: 70px; font-size: 18px; margin-top: 0px;">
+      <ion-icon name="card-outline" color="primary" style="margin-right: 10px; font-size: 26px;"></ion-icon>
+      <ion-text color="dark" style="text-align: left; width: 100%; margin-top: 2px; margin-left: 4px;">
+        <span>
+          Pagamento
+        </span>
+      </ion-text>
+    </ion-button> -->
+    <!-- <ion-button expand="full" fill="clear" style="height: 70px; font-size: 18px; margin-top: 0px;">
+      <ion-icon name="ticket-outline" color="primary" style="margin-right: 10px; font-size: 26px;"></ion-icon>
+      <ion-text color="dark" style="text-align: left; width: 100%; margin-top: 2px; margin-left: 4px;">
+        <span>
+          Cupons
+        </span>
+      </ion-text>
+    </ion-button> -->
+    <ion-button expand="full" fill="clear" style="height: 70px; font-size: 18px; margin-top: 0px;">
+      <ion-icon name="help-outline" color="primary" style="margin-right: 10px; font-size: 26px;"></ion-icon>
+      <ion-text color="dark" style="text-align: left; width: 100%; margin-top: 2px; margin-left: 4px;">
+        <span>
+          Ajuda
+        </span>
+      </ion-text>
+    </ion-button>
+
+    <br>
+
+  </div>
+
+</ion-content>

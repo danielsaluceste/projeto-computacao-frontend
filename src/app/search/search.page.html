@@ -1,0 +1,42 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-back-button slot="start" text="" style=" margin-left: 4px; z-index: 9999; font-size: 22px;" color="primary"></ion-back-button>
+    <ion-title>Busca</ion-title>
+  </ion-toolbar>
+  <div class="shadow" style="width: 100%; height: 1px; margin-top: -1px;"></div>
+</ion-header>
+
+<ion-content>
+
+  <!-- Busca -->
+  <div style="display: flex !important; justify-content: center !important; background-color: white;">
+    <ion-searchbar (search)="search($event)" placeholder="Buscar"></ion-searchbar>
+  </div>
+
+  <!-- Recentes -->
+  <ion-toolbar *ngIf="recents.length > 0" class="recentes">
+    <ion-title>Buscas Recentes</ion-title>
+
+    <ion-list *ngIf="recents" style="margin-left: 5px;">
+      <ion-item *ngFor="let item of recents.reverse()" class="ion-activatable ripple-parent">
+        <ion-label>{{item}}</ion-label>
+        <ion-icon name="chevron-forward-outline"></ion-icon>
+        <ion-ripple-effect></ion-ripple-effect>
+      </ion-item>
+    </ion-list>
+  </ion-toolbar>
+
+  <!-- Categorias -->
+  <ion-toolbar *ngIf="categories.length > 0" class="recentes">
+    <ion-title>Categorias</ion-title>
+
+    <ion-list *ngIf="categories" style="margin-left: 5px;">
+      <ion-item *ngFor="let item of categories" class="ion-activatable ripple-parent">
+        <ion-label>{{item}}</ion-label>
+        <ion-icon name="chevron-forward-outline"></ion-icon>
+        <ion-ripple-effect></ion-ripple-effect>
+      </ion-item>
+    </ion-list>
+  </ion-toolbar>
+
+</ion-content>

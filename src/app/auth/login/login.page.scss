@@ -1,0 +1,45 @@
+ion-content{
+    --ion-background-color:#fff;
+}
+
+.centerXY {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+ion-button {
+    --box-shadow: none;
+    height: 60px;
+}
+
+@media screen and (max-width: 299px) {
+    .buttom {
+        font-size: 10px !important;
+    }
+}
+
+@media screen and (max-width: 374px) and (min-width: 300px) {
+    .buttom {
+        font-size: 12px !important;
+    }
+}
+
+@media screen and (max-width: 420px) and (min-width: 375px) {
+    .buttom {
+        font-size: 14px !important;
+    }
+}
+
+@media screen and (max-width: 440px) and (min-width: 420px) {
+    .buttom {
+        font-size: 15px !important;
+    }
+}
+
+.new-background-color {
+    --background: white;
+}

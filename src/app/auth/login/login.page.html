@@ -1,0 +1,43 @@
+<ion-header class="ion-no-border new-background-color">
+  <ion-toolbar class="new-background-color">
+    <ion-back-button slot="start" text="" style=" margin-left: 4px; z-index: 9999; font-size: 22px;" color="primary">
+    </ion-back-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+  <div style="position: relative; height: 90%; min-height: 600px;" [formGroup]="form">
+
+    <div class="centerXY" style="text-align: center; position: relative;">
+
+      <div style="margin-left: 20px; margin-right: 20px; ">
+
+        <ion-text color="primary">
+          <h1 style="font-size: 50px; margin-bottom: 35px; font-weight: 405;">LOGIN</h1>
+        </ion-text>
+
+        <ion-item mode="md" style="border-radius: 5px;">
+          <ion-label position="floating">CPF</ion-label>
+          <ion-input maxlength="14" simpleMask="999.999.999-99" formControlName="login"></ion-input>
+        </ion-item>
+
+        <ion-item mode="md" style="margin-top: 15px; border-radius: 5px;">
+          <ion-label position="floating">Senha</ion-label>
+          <ion-input type="password" formControlName="password"></ion-input>
+        </ion-item>
+
+        <ion-button (click)="login()" expand="block" color="primary" shape="round"
+          style="width: 100%; height: 55px; font-size: 18px; margin-top: 35px;">ENTRAR</ion-button>
+
+        <p style="font-size: 16px; margin-top: 30px;">Esqueceu a senha? aperte aqui!</p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+</ion-content>

@@ -1,0 +1,61 @@
+<ion-header class="ion-no-border new-background-color">
+  <ion-toolbar class="new-background-color">
+    <ion-back-button slot="start" text="" style=" margin-left: 4px; z-index: 9999; font-size: 22px;" color="primary">
+    </ion-back-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div style="position: relative; height: 90%; min-height: 700px;" [formGroup]="form">
+
+    <div class="centerXY" style="text-align: center; position: relative;">
+
+      <div style="margin-left: 20px; margin-right: 20px; ">
+
+        <ion-text color="primary">
+          <h1 style="font-size: 50px; margin-bottom: 35px; font-weight: 405;">CADASTRO</h1>
+        </ion-text>
+
+        <ion-item mode="md" style="border-radius: 5px;">
+          <ion-label position="floating">Nome Completo</ion-label>
+          <ion-input formControlName="name"></ion-input>
+        </ion-item>
+
+        <ion-item mode="md" style="margin-top: 15px; border-radius: 5px;">
+          <ion-label position="floating">E-Mail</ion-label>
+          <ion-input formControlName="email"></ion-input>
+        </ion-item>
+
+        <ion-item mode="md" style="margin-top: 15px; border-radius: 5px;">
+          <ion-label position="floating">Telefone</ion-label>
+          <ion-input formControlName="phone"></ion-input>
+        </ion-item>
+
+        <ion-item mode="md" style="margin-top: 15px; border-radius: 5px;">
+          <ion-label position="floating">CPF</ion-label>
+          <ion-input formControlName="cpf"></ion-input>
+        </ion-item>
+
+        <ion-item mode="md" style="margin-top: 15px; border-radius: 5px;">
+          <ion-label position="floating">Data de Nascimento</ion-label>
+          <ion-input formControlName="date"></ion-input>
+        </ion-item>
+
+        <ion-item mode="md" style="margin-top: 15px; border-radius: 5px;">
+          <ion-label position="floating">Senha</ion-label>
+          <ion-input formControlName="password"></ion-input>
+        </ion-item>
+
+        
+
+        <ion-button (click)="register()" expand="block" color="primary" shape="round"
+          style="width: 100%; height: 55px; font-size: 18px; margin-top: 35px;">CRIAR CONTA</ion-button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</ion-content>
