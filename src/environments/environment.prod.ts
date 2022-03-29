@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: "http://projetocomp.onecoding.com.br:3000"
+  apiUrl: "https://projetocomp.onecoding.com.br"
 };
