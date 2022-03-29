@@ -20,7 +20,7 @@ export class CitySelectorPage implements OnInit {
   constructor(public http: HttpClient, private storage: Storage, public router: Router) { }
 
   ngOnInit() {
-    this.http.get('http://www.geonames.org/childrenJSON?geonameId=3469034').subscribe((data: any) => {
+    this.http.get('https://www.geonames.org/childrenJSON?geonameId=3469034').subscribe((data: any) => {
       this.states = data.geonames;
       this.loadingStates = false;
       console.log(this.states);
@@ -35,7 +35,7 @@ export class CitySelectorPage implements OnInit {
       this.loadingCity = true;
       this.selectedState = state;
 
-      this.http.get('http://servicodados.ibge.gov.br/api/v1/localidades/estados/' + state + '/municipios').subscribe((data: any) => {
+      this.http.get('https://servicodados.ibge.gov.br/api/v1/localidades/estados/' + state + '/municipios').subscribe((data: any) => {
         this.cities = data;
         this.loadingCity = false;
       });
