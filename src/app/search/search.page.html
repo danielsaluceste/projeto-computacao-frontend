@@ -6,11 +6,12 @@
   <div class="shadow" style="width: 100%; height: 1px; margin-top: -1px;"></div>
 </ion-header>
 
-<ion-content>
+<!-- No search -->
+<ion-content *ngIf="!searchName && !searchCat">
 
   <!-- Busca -->
   <div style="display: flex !important; justify-content: center !important; background-color: white;">
-    <ion-searchbar (search)="search($event)" placeholder="Buscar"></ion-searchbar>
+    <ion-searchbar (search)="searchText($event)" placeholder="Buscar"></ion-searchbar>
   </div>
 
   <!-- Recentes -->
@@ -18,7 +19,7 @@
     <ion-title>Buscas Recentes</ion-title>
 
     <ion-list *ngIf="recents" style="margin-left: 5px;">
-      <ion-item *ngFor="let item of recents.reverse()" class="ion-activatable ripple-parent">
+      <ion-item *ngFor="let item of recents.reverse()" (click)="searchText(item)" class="ion-activatable ripple-parent">
         <ion-label>{{item}}</ion-label>
         <ion-icon name="chevron-forward-outline"></ion-icon>
         <ion-ripple-effect></ion-ripple-effect>
@@ -31,12 +32,48 @@
     <ion-title>Categorias</ion-title>
 
     <ion-list *ngIf="categories" style="margin-left: 5px;">
-      <ion-item *ngFor="let item of categories" class="ion-activatable ripple-parent">
+      <ion-item *ngFor="let item of categories" (click)="searchCategory(item)" class="ion-activatable ripple-parent">
         <ion-label>{{item}}</ion-label>
         <ion-icon name="chevron-forward-outline"></ion-icon>
         <ion-ripple-effect></ion-ripple-effect>
       </ion-item>
     </ion-list>
   </ion-toolbar>
+
+</ion-content>
+
+<!-- Search result -->
+<ion-content *ngIf="searchName || searchCat">
+
+  <!-- Busca -->
+  <div style="display: flex !important; justify-content: center !important; background-color: white;">
+    <ion-searchbar (search)="searchText($event)" placeholder="Buscar" [value]="searchName ?? searchCat" (ionClear)="onClear()"></ion-searchbar>
+  </div>
+
+  <!-- Loading -->
+  <div *ngIf="loading" style="display: flex; justify-content: center; height: calc(100% - 80px); align-items: center; width: 100%;">
+    <ion-spinner color="primary"></ion-spinner>
+  </div>
+
+  <div *ngIf="!loading">
+    <div *ngFor="let item of products.reverse()">
+      <ion-card *ngIf="item.city == locale.city && item.state == locale.state" (click)="open(item._id)" mode="ios" class="shadow d-flex ion-activatable ripple-parent">
+        <div style="height: 100%; display: flex; align-items: center;">
+          <img [src]="item.foto ?? 'https://icon-library.com/images/no-image-icon/no-image-icon-0.jpg'" alt="" width="100px" height="102px">
+        </div>
+        <div>
+          <ion-card-header>
+            <ion-card-title>{{item.nome}}</ion-card-title>
+            <!-- <ion-card-subtitle>Card Subtitle</ion-card-subtitle> -->
+          </ion-card-header>
+  
+          <ion-card-content *ngIf="item.descricao">
+            {{item.descricao}}
+          </ion-card-content>
+        </div>
+        <ion-ripple-effect></ion-ripple-effect>
+      </ion-card>
+    </div>
+  </div>
 
 </ion-content>

@@ -32,6 +32,8 @@ export class LoginPage implements OnInit {
     console.log(login);
 
     this.userService.login(login, this.form.value.password).then((data) => {
+      this.storage.set('token', data.token);
+      this.storage.set('logado', true);
       window.location.reload();
     }).catch((error) => {
       this.presentToastWithOptions();

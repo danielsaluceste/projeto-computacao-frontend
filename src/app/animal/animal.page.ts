@@ -10,7 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 export class AnimalPage implements OnInit {
 
   public animal: any = [];
-  public loading: boolean = false;
+  public loading: boolean = true;
   public id: string;
 
   constructor(public http: HttpClient, private route: ActivatedRoute,) { }

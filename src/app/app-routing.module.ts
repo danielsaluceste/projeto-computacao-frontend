@@ -50,6 +50,18 @@ const routes: Routes = [
     path: 'animal',
     loadChildren: () => import('./animal/animal.module').then( m => m.AnimalPageModule)
   },
+  {
+    path: 'my-posts',
+    loadChildren: () => import('./my-posts/my-posts.module').then( m => m.MyPostsPageModule)
+  },
+  {
+    path: 'help',
+    loadChildren: () => import('./help/help.module').then( m => m.HelpPageModule)
+  },
+  {
+    path: 'quiz',
+    loadChildren: () => import('./quiz/quiz.module').then( m => m.QuizPageModule)
+  },
 ];
 @NgModule({
   imports: [

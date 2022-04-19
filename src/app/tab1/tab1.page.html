@@ -19,43 +19,27 @@
   <div class="shadow" style="width: 100%; height: 1px; margin-top: -1px;"></div>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<!-- Carregando -->
+<ion-content *ngIf="loading">
+  <div style="display: flex; justify-content: center; height: 100%; align-items: center; width: 100%;">
+    <ion-spinner color="primary"></ion-spinner>
+  </div>
+</ion-content>
+
+<!-- Sem animal -->
+<ion-content [fullscreen]="true" *ngIf="!loading && products.length == 0">
+  <div class="p-2">
+    <ion-icon class="nenhum" name="sad-outline" style="font-size: 60px; margin-top: -45px;"></ion-icon>
+    <h3 class="nenhum">Nenhum animal encontrado!</h3>
+  </div>
+</ion-content>
+
+<!-- Com animal -->
+<ion-content [fullscreen]="true" *ngIf="!loading && products.length > 0">
 
   <ion-refresher mode="md" slot="fixed" (ionRefresh)="doRefresh($event)">
     <ion-refresher-content mode="md" style="margin-top: 60px;" refreshingText="Refreshing..."></ion-refresher-content>
   </ion-refresher>
-
-  <!-- <div
-    style="display: flex; width: 100%; padding: 10px; background-color: white; overflow-x: auto;"
-    class="shadow">
-
-    <ion-button [routerLink]="['/post-product']" routerLinkActive="router-link-active"  expand="block" color="primary" shape="round"
-    style="width: 100%; height: 55px; font-size: 17px; margin-top: 5px; margin-bottom: -10px;">Postar um serviço</ion-button>
-
-    <div class="itemTop">
-      <ion-icon name="fast-food-outline" style="font-size: 42px;"></ion-icon>
-      <ion-label class="textTop mt-2">ELETRECISTA</ion-label>
-    </div>
-
-    <div class="itemTop">
-      <ion-icon name="fast-food-outline" style="font-size: 42px;"></ion-icon>
-      <ion-label class="textTop mt-2">FAXINEIRA</ion-label>
-    </div>
-
-
-    <div class="itemTop">
-      <ion-icon name="fast-food-outline" style="font-size: 42px;"></ion-icon>
-      <ion-label class="textTop mt-2">CARPINTEIRO</ion-label>
-    </div>
-
-
-    <div class="itemTop">
-      <ion-icon name="fast-food-outline" style="font-size: 42px;"></ion-icon>
-      <ion-label class="textTop mt-2">PEDREIRO</ion-label>
-    </div>
-
-
-  </div> -->
 
   <div class="w-100">
 

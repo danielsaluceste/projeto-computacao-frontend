@@ -1,6 +1,6 @@
 {
-	"appId": "io.ionic.starter",
-	"appName": "Help",
+	"appId": "br.com.meupet",
+	"appName": "Meu PET",
 	"webDir": "www",
 	"bundledWebRuntime": false
 }

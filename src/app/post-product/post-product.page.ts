@@ -93,12 +93,7 @@ export class PostProductPage implements OnInit {
     console.log(files);
     const reader = new FileReader();
     reader.onload = () => {
-      this.imageURL = reader.result;
-
-      this.http.post('help/products/photo', {image: this.imageURL}).subscribe((data: any) => {
-        console.log(data);
-      });
-        
+      this.imageURL = reader.result;        
     };
     reader.readAsDataURL(event.target.files[0]);
   }

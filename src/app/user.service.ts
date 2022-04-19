@@ -17,7 +17,6 @@ export class UserService {
         password: password
       }).subscribe({
         next: (data: any) => {
-          console.log(data);
           this.storage.set('token', data.token);
           this.storage.set('logado', true);
           resolve(data);
