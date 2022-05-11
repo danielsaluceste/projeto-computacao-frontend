@@ -7,6 +7,9 @@ import { IonicModule } from '@ionic/angular';
 import { RegisterPageRoutingModule } from './register-routing.module';
 
 import { RegisterPage } from './register.page';
+import { NgxMaskModule } from 'ngx-mask';
+import { BrMaskerModule } from 'br-mask';
+import { SimpleMaskModule } from 'ngx-ion-simple-mask';
 
 @NgModule({
   imports: [
@@ -15,6 +18,9 @@ import { RegisterPage } from './register.page';
     IonicModule,
     RegisterPageRoutingModule,
     ReactiveFormsModule,
+    NgxMaskModule.forRoot(),
+    BrMaskerModule,
+    SimpleMaskModule
   ],
   declarations: [RegisterPage]
 })

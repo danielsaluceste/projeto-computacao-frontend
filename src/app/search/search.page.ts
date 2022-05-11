@@ -49,6 +49,7 @@ export class SearchPage implements OnInit {
     this.http.get('help/products', {}).subscribe({
       next: (data : any) => {
         this.products = data.filter(item => item.city == this.locale.city).filter(item => item.state == this.locale.state);
+        this.products = this.products.filter(item => item.nome.toLocaleLowerCase() == this.searchName.toLocaleLowerCase());
         this.loading = false;
       },
       error: error => {
