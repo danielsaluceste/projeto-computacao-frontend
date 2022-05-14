@@ -1,0 +1,45 @@
+.shadow {
+    box-shadow: 0px 1px 3px #c2c2c2 !important;
+}
+
+.input {
+    background-color: white;
+    border: none;
+    border-radius: 35px;
+    height: 40px;
+    margin-left: 15px;
+    padding-left: 15px;
+    width: calc(100% - 80px);
+}
+
+.btnSend {
+    transition: 0.2s;
+    width: 40px;
+    margin-left: 10px;
+    height: 40px;
+    border-radius: 100%;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btnSend:active {
+    background-color: #d8d8d8;
+}
+
+.messageRight {
+    width: 80%;
+    padding: 15px;
+    background-color: white;
+    margin-left: calc(20% - 20px);
+    border-radius: 5px;
+}
+
+.messageLeft {
+    width: 80%;
+    padding: 15px;
+    background-color: white;
+    margin-left: calc(20px);
+    border-radius: 5px;
+}
