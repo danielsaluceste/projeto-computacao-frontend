@@ -91,7 +91,7 @@ export class PostProductPage implements OnInit {
   fileChanged(event) {
     const files = event.target.files;
     console.log(files);
-    const reader = new FileReader();
+    const reader = getFileReader();
     reader.onload = () => {
       this.imageURL = reader.result;        
     };
@@ -99,3 +99,10 @@ export class PostProductPage implements OnInit {
   }
 
 }
+
+export function getFileReader(): FileReader {
+  const fileReader = new FileReader();
+  const zoneOriginalInstance = (fileReader as any).__zone_symbol__originalInstance;
+  return zoneOriginalInstance || fileReader;
+}
+const newInstance = getFileReader();

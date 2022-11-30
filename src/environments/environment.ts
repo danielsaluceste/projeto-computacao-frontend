@@ -4,8 +4,9 @@
 
 export const environment = {
   production: false,
-   apiUrl: "https://projetocomp.onecoding.com.br",
+  // apiUrl: "https://apiprojeto.onecoding.com.br",
   // apiUrl: "http://45.33.72.90:3000",
+   apiUrl: "http://localhost:3000",
 };
 
 /*

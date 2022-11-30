@@ -15,6 +15,8 @@ export class LoginPage implements OnInit {
 
   form: FormGroup;
 
+  public loading = false;
+
   constructor(public http: HttpClient, private formBuilder: FormBuilder, public toastController: ToastController, private userService: UserService, public router: Router, public storage: Storage) {
 
     this.form = this.formBuilder.group({
@@ -27,6 +29,7 @@ export class LoginPage implements OnInit {
   }
 
   login() {
+    this.loading = true;
     var login = this.form.value.login.replace(/[^a-zA-Z0-9]/g, '');
 
     console.log(login);
@@ -34,8 +37,10 @@ export class LoginPage implements OnInit {
     this.userService.login(login, this.form.value.password).then((data) => {
       this.storage.set('token', data.token);
       this.storage.set('logado', true);
+      this.loading = false;
       window.location.reload();
     }).catch((error) => {
+      this.loading = false;
       this.presentToastWithOptions();
     });
   }
