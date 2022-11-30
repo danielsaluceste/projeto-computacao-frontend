@@ -5,8 +5,8 @@ import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
 import { UserService } from '../user.service';
-import { File } from '@ionic-native/file/ngx';
-import { FileTransfer, FileTransferObject } from '@ionic-native/file-transfer/ngx';
+import { File } from '@awesome-cordova-plugins/file/ngx';
+import { FileTransfer, FileTransferObject } from '@awesome-cordova-plugins/file-transfer/ngx';
 
 @Component({
   selector: 'app-post-product',

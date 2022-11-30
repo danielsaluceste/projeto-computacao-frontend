@@ -13,8 +13,8 @@ import { APIInterceptor } from './app.service';
 import { BrMaskerModule } from 'br-mask';
 import { SimpleMaskModule } from 'ngx-ion-simple-mask'
 import { IConfig, NgxMaskModule } from 'ngx-mask';
-import { File } from '@ionic-native/file/ngx';
-import { FileTransfer } from '@ionic-native/file-transfer/ngx';
+import { File } from '@awesome-cordova-plugins/file/ngx';
+import { FileTransfer, FileTransferObject } from '@awesome-cordova-plugins/file-transfer/ngx';
 
 export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
 
