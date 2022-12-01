@@ -31,6 +31,9 @@ export class LoginPage implements OnInit {
       StatusBar.setStyle({
         style: Style.Light,
       });
+      StatusBar.setBackgroundColor({
+        color: '#ffffff',
+      });
     }, 1000);
   }
 

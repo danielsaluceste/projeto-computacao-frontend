@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { StatusBar, Style } from '@capacitor/status-bar';
 import { Platform } from '@ionic/angular';
 
 @Component({
@@ -20,6 +21,15 @@ export class FirstPage implements OnInit {
     } else {
       this.os = 'web';
     }
+
+    setTimeout(() => {
+      StatusBar.setStyle({
+        style: Style.Light,
+      });
+      StatusBar.setBackgroundColor({
+        color: '#ffffff',
+      });
+    }, 1000);
   }
 
 }

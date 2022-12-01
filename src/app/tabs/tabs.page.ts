@@ -13,6 +13,9 @@ export class TabsPage {
       StatusBar.setStyle({
         style: Style.Light,
       });
+      StatusBar.setBackgroundColor({
+        color: '#ffffff',
+      });
     }, 500);
   }
 
