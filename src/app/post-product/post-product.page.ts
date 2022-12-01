@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ToastController } from '@ionic/angular';
+import { Platform, ToastController } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
 import { UserService } from '../user.service';
 import { File } from '@awesome-cordova-plugins/file/ngx';
@@ -24,7 +24,9 @@ export class PostProductPage implements OnInit {
 
   form: FormGroup;
 
-  constructor(public http: HttpClient, private formBuilder: FormBuilder, public toastController: ToastController, private userService: UserService, public router: Router, public storage: Storage, private file: File, private transfer: FileTransfer) {
+  public os;
+
+  constructor(public http: HttpClient, public plataform: Platform, private formBuilder: FormBuilder, public toastController: ToastController, private userService: UserService, public router: Router, public storage: Storage, private file: File, private transfer: FileTransfer) {
 
     this.form = this.formBuilder.group({
       name: [''],
@@ -35,6 +37,13 @@ export class PostProductPage implements OnInit {
   }
 
   ngOnInit() {
+    if (this.plataform.is('ios') && this.plataform.is('capacitor')) {
+      this.os = 'ios';
+    } else if (this.plataform.is('android') && this.plataform.is('capacitor')) {
+      this.os = 'android';
+    } else {
+      this.os = 'web';
+    }
   }
 
   async post() {
