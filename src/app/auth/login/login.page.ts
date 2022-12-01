@@ -43,9 +43,9 @@ export class LoginPage implements OnInit {
 
     console.log(login);
 
-    this.userService.login(login, this.form.value.password).then((data) => {
-      this.storage.set('token', data.token);
-      this.storage.set('logado', true);
+    this.userService.login(login, this.form.value.password).then(async (data) => {
+      await this.storage.set('token', data.token);
+      await this.storage.set('logado', true);
       this.loading = false;
       window.location.reload();
     }).catch((error) => {
