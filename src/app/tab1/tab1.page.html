@@ -28,10 +28,21 @@
 
 <!-- Sem animal -->
 <ion-content [fullscreen]="true" *ngIf="!loading && products.length == 0">
+  <ion-refresher mode="md" slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content mode="md" style="margin-top: 60px;" refreshingText="Refreshing..."></ion-refresher-content>
+  </ion-refresher>
+
   <div class="p-2">
     <ion-icon class="nenhum" name="sad-outline" style="font-size: 60px; margin-top: -45px;"></ion-icon>
     <h3 class="nenhum">Nenhum animal encontrado!</h3>
   </div>
+  
+  <!-- Btn add -->
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button [routerLink]="['/post-product']">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>
 
 <!-- Com animal -->

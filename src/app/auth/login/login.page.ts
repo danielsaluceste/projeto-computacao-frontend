@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
 import { UserService } from 'src/app/user.service';
+import { StatusBar, Style } from '@capacitor/status-bar';
 
 @Component({
   selector: 'app-login',
@@ -26,6 +27,11 @@ export class LoginPage implements OnInit {
   }
 
   ngOnInit() {
+    setTimeout(() => {
+      StatusBar.setStyle({
+        style: Style.Light,
+      });
+    }, 1000);
   }
 
   login() {

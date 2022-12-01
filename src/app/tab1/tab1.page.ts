@@ -53,7 +53,7 @@ export class Tab1Page implements OnInit{
 
     this.http.get('help/products', {}).subscribe({
       next: (data : any) => {
-        this.products = data;
+        this.products = data.filter(item => item.city == this.locale.city).filter(item => item.state == this.locale.state);
         this.loading = false;
         event.target.complete();
       },

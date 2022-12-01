@@ -10,7 +10,7 @@
 
       <div class="PartScreen text-center">
         <div style="height: 1px;"></div>
-        <span class="titleText">MEU PET</span>
+        <span class="titleText {{this.os == 'ios' ? 'mt-5' : ''}}" >MEU PET</span>
         <img src="assets/icon/logo.jpg" style="width: 85%; margin-top: 50px;" alt="">
       </div>
 
@@ -20,8 +20,8 @@
   
       <div class="PartScreen PartScreen3">
         <div class="w-100">
-          <ion-button color="primary" shape="round" expand="block" class="w-99 btn1" [routerLink]="['/login']">Já tenho uma conta</ion-button>
-          <ion-button color="primary" shape="round" expand="block" class="w-99 mb-2" [routerLink]="['/register']">Criar uma conta</ion-button>
+          <ion-button color="primary" shape="round" expand="block" class="w-99 btn1" [routerLink]="['/login']">JÁ TENHO UMA CONTA</ion-button>
+          <ion-button color="primary" shape="round" expand="block" class="w-99 {{this.os == 'ios' ? 'mb-3' : 'mb-2'}}" [routerLink]="['/register']">CRIAR UMA CONTA</ion-button>
         </div>
       </div>
 

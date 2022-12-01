@@ -34,12 +34,11 @@ export class RegisterPage implements OnInit {
       nome: this.form.value.name,
       email: this.form.value.email,
       telefone: this.form.value.phone,
-      cpf: this.form.value.cpf,
       nascimento: this.form.value.date,
       senha: this.form.value.password,
     }).subscribe({
       next: (data : any) => {
-        this.userService.login(data.cpf, data.password).then((data) => {
+        this.userService.login(data.email, data.senha).then((data) => {
           this.router.navigate(['/tabs']);
         });
       },

@@ -23,7 +23,7 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
   entryComponents: [],
   imports: [
     BrowserModule, 
-    IonicModule.forRoot({ navAnimation: iosTransitionAnimation, swipeBackEnabled: true }), 
+    IonicModule.forRoot({ navAnimation: iosTransitionAnimation, swipeBackEnabled: true, mode: 'md' }), 
     AppRoutingModule, 
     IonicStorageModule.forRoot(), 
     HttpClientModule, 

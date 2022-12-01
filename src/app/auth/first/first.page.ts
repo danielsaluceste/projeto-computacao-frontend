@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Platform } from '@ionic/angular';
 
 @Component({
   selector: 'app-first',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FirstPage implements OnInit {
 
-  constructor() { }
+  public os;
+
+  constructor(public plataform: Platform) { }
 
   ngOnInit() {
+    if (this.plataform.is('ios') && this.plataform.is('capacitor')) {
+      this.os = 'ios';
+    } else if (this.plataform.is('android') && this.plataform.is('capacitor')) {
+      this.os = 'android';
+    } else {
+      this.os = 'web';
+    }
   }
 
 }

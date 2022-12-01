@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-animal',
@@ -13,9 +14,13 @@ export class AnimalPage implements OnInit {
   public loading: boolean = true;
   public id: string;
 
-  constructor(public http: HttpClient, private route: Router,) { }
+  public userID: string;
 
-  ngOnInit() {
+  constructor(public http: HttpClient, private route: Router, public storage: Storage) { }
+
+  async ngOnInit() {
+
+    this.userID = await this.storage.get('userID');
 
     this.id = localStorage.getItem('animalOpened');
     console.log(this.id);

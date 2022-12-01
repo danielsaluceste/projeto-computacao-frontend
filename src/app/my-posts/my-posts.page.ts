@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActionSheetController } from '@ionic/angular';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-my-posts',
@@ -13,9 +14,11 @@ export class MyPostsPage implements OnInit {
   public loading: boolean = true;
   public userID: string;
 
-  constructor(public http: HttpClient, public actionSheetController: ActionSheetController) { }
+  constructor(public http: HttpClient, public actionSheetController: ActionSheetController, public storage: Storage) { }
 
-  ngOnInit() {
+  async ngOnInit() {
+    this.userID = await this.storage.get('userID');
+    console.log(this.userID);
     this.http.get('help/products', {}).subscribe({
       next: (data : any) => {
         this.products = data;

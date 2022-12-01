@@ -22,12 +22,13 @@
 
         <div style="justify-content: center; display: flex; align-items: center;">
           <span *ngIf="!imageURL" class="dot" style="align-items: center; display: flex; justify-content: center; cursor: pointer;" (click)="uploadPhoto()">
-            <h1 style="text-align: center; font-weight: bold; font-size: 16px; color: rgb(255, 255, 255); margin-top: 10px;">Escolher foto</h1>
+            <h1 *ngIf="loaing == false" style="text-align: center; font-weight: bold; font-size: 16px; color: rgb(255, 255, 255); margin-top: 10px;">Escolher foto</h1>
           </span>
           <div *ngIf="imageURL" style="display: flex; justify-content: center; flex-direction: column;">
             <img [src]="imageURL" class="dot" alt="">
-            <!-- <ion-button style="height: 40px; margin-top: 10px;" shape="round" (click)="imageURL = ''">Remover</ion-button> -->
+            <ion-button style="height: 40px; margin-top: 10px;" shape="round" (click)="imageURL = ''">Trocar Foto</ion-button>
           </div>
+          <ion-spinner *ngIf="loaing == true" name="crescent" color="primary" class="loading"></ion-spinner>
           <input type="file" (change)="fileChanged($event)" accept="image/*" class="filebtn" #fileButton  style="display: none;" />
         </div>
         <br>

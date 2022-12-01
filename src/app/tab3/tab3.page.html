@@ -20,7 +20,7 @@
     <br><br>
 
     <div style="justify-content: center; display: flex;">
-      <span *ngIf="user" class="dot"> <h1 style="text-align: center; font-weight: bold; font-size: 36px; margin-top: 29px; margin-left: 6px; color: white;">D</h1> </span>
+      <span *ngIf="user" class="dot"> <h1 style="text-align: center; font-weight: bold; font-size: 36px; margin-top: 29px; margin-left: 6px; color: white;">{{user?.nome?.toUpperCase().substring(0, 1)}}</h1> </span>
     </div>
     <br>
     <ion-text *ngIf="user.nome" color="dark">

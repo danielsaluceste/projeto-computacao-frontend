@@ -19,6 +19,7 @@ export class AppComponent implements OnInit {
     this.http.get('help/users', { headers: {token: token} }).subscribe({
       next: (data : any) => {
         this.storage.set('user', data);
+        this.storage.set('userID', data._id);
       },
       error: error => {
         this.storage.set('logado', false);

@@ -20,6 +20,8 @@ export class PostProductPage implements OnInit {
 
   imageURL: any;
 
+  public loaing = false;
+
   form: FormGroup;
 
   constructor(public http: HttpClient, private formBuilder: FormBuilder, public toastController: ToastController, private userService: UserService, public router: Router, public storage: Storage, private file: File, private transfer: FileTransfer) {
@@ -89,11 +91,14 @@ export class PostProductPage implements OnInit {
   }
 
   fileChanged(event) {
+    this.loaing = true;
+
     const files = event.target.files;
     console.log(files);
     const reader = getFileReader();
     reader.onload = () => {
-      this.imageURL = reader.result;        
+      this.imageURL = reader.result;
+      this.loaing = false;
     };
     reader.readAsDataURL(event.target.files[0]);
   }
